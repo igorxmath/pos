@@ -26,6 +26,7 @@
       "#/dashboard/*": ["./app/components/dashboard/*"],
       "#/icons": ["./app/components/icons"],
       "$/env": ["./env.mjs"],
+      "$/auth": ["./app/lib/auth.ts"],
       "$/db": ["./database/index.ts"],
       "$/schema": ["./database/schema.ts"],
     }
