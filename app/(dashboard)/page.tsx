@@ -1,10 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '#/ui/card'
 import { Gauge } from '#/ui/gauge'
 
-import { Metric } from './overview/metric'
-import { Overview } from './overview/overview'
-import { RecentSales } from './overview/recentSales'
-
 export default function Page() {
   return (
     <div className='container mx-auto flex w-full flex-col space-y-4 p-4'>
@@ -34,9 +30,7 @@ export default function Page() {
             </CardDescription>
           </CardHeader>
           <CardContent className='pb-4'>
-            <div className='h-[200px]'>
-              <Metric />
-            </div>
+            <div className='h-[200px]'>Metrics</div>
           </CardContent>
         </Card>
       </div>
@@ -45,18 +39,14 @@ export default function Page() {
           <CardHeader>
             <CardTitle>Overview</CardTitle>
           </CardHeader>
-          <CardContent className='pl-2'>
-            <Overview />
-          </CardContent>
+          <CardContent className='pl-2'>Charts</CardContent>
         </Card>
         <Card className='md:col-span-3'>
           <CardHeader>
             <CardTitle>Recent Sales</CardTitle>
             <CardDescription>You made 265 sales this month.</CardDescription>
           </CardHeader>
-          <CardContent>
-            <RecentSales />
-          </CardContent>
+          <CardContent>Sales</CardContent>
         </Card>
       </div>
     </div>
