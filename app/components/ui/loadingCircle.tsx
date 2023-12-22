@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils/merge'
+import { cn } from '@/lib/utils'
 
 export const loadingCircle = (props: React.SVGProps<SVGSVGElement>) => (
   <svg

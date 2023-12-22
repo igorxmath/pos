@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -25,6 +25,9 @@
       "#/ui/*": ["./app/components/ui/*"],
       "#/dashboard/*": ["./app/components/dashboard/*"],
       "#/icons": ["./app/components/icons"],
+      "$/env": ["./env.mjs"],
+      "$/db": ["./database/index.ts"],
+      "$/schema": ["./database/schema.ts"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

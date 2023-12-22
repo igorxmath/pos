@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils/merge'
+import { cn } from '@/lib/utils'
 
 function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (

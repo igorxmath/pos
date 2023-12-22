@@ -1,6 +1,5 @@
 'use client'
 
-import { useTheme } from 'next-themes'
 import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts'
 
 const data = [
@@ -35,17 +34,6 @@ const data = [
 ]
 
 export function Metric() {
-  const { resolvedTheme } = useTheme()
-
-  const theme = {
-    light: {
-      primary: 'hsla(212,100%,48%,1)',
-    },
-    dark: {
-      primary: 'hsla(212,100%,48%,1)',
-    },
-  }
-
   return (
     <ResponsiveContainer
       width='100%'
@@ -96,8 +84,7 @@ export function Metric() {
             {
               stroke: 'var(--theme-primary)',
               opacity: 0.25,
-              '--theme-primary':
-                resolvedTheme === 'dark' ? theme.dark.primary : theme.light.primary,
+              '--theme-primary': 'hsla(212,100%,48%,1)',
             } as React.CSSProperties
           }
         />
@@ -112,8 +99,7 @@ export function Metric() {
           style={
             {
               stroke: 'var(--theme-primary)',
-              '--theme-primary':
-                resolvedTheme === 'dark' ? theme.dark.primary : theme.light.primary,
+              '--theme-primary': 'hsla(212,100%,48%,1)',
             } as React.CSSProperties
           }
         />

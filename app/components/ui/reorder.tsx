@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Reorder, useDragControls } from 'framer-motion'
 
-import { cn } from '@/lib/utils/merge'
+import { cn } from '@/lib/utils'
 
 const ReorderableGroup = React.forwardRef<
   React.ElementRef<typeof Reorder.Group>,

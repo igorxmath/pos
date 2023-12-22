@@ -5,8 +5,8 @@ import type { DialogProps } from '@radix-ui/react-dialog'
 import { Search } from '#/icons'
 import { Command as CommandPrimitive } from 'cmdk'
 
-import { cn } from '@/lib/utils/merge'
-import { Dialog, DialogContent } from '@/components/dashboard/withDialog'
+import { cn } from '@/lib/utils'
+import { Dialog, DialogContent } from '@/hooks/useDialog'
 
 const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,

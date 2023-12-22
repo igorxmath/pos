@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { Drawer } from 'vaul'
 
-import { cn } from '@/lib/utils/merge'
+import { cn } from '@/lib/utils'
 
 const Dialog = Drawer.Root
 

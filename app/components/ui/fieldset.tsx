@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils/merge'
+import { cn } from '@/lib/utils'
 import { Skeleton } from '#/ui/skeleton'
 
 type FieldSetProps = React.HTMLAttributes<HTMLDivElement>

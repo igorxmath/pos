@@ -3,9 +3,9 @@
 import * as React from 'react'
 import { useRouter } from 'next/navigation'
 import type { DialogProps } from '@radix-ui/react-alert-dialog'
-import { segments } from 'app/lib/utils/segments'
 
-import { cn } from '@/lib/utils/merge'
+import { segments } from '@/lib/segments'
+import { cn } from '@/lib/utils'
 import { Button } from '#/ui/button'
 import {
   CommandDialog,

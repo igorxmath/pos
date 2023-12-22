@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { GitHub } from '#/icons'
 
-import { CommandMenu } from '@/components/dashboard/commandMenu'
+import { CommandMenu } from '@/components/commandMenu'
 import { Button } from '#/ui/button'
 
 export default function Footer() {

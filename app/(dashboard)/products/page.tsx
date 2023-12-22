@@ -1,6 +1,9 @@
+import { auth } from '@/lib/auth'
 import { Button } from '#/ui/button'
 
 export default async function Page() {
+  const session = await auth()
+
   return (
     <div className='flex w-full flex-col'>
       <div className='border-b'>
@@ -12,7 +15,7 @@ export default async function Page() {
         </div>
       </div>
       <div className='container mx-auto p-4'>
-        <p>TABLES</p>
+        <p>{session?.user?.id}</p>
       </div>
     </div>
   )
