@@ -1,4 +1,5 @@
-import { auth } from '@/lib/auth'
+import { auth } from '$/auth'
+
 import { Button } from '#/ui/button'
 
 export default async function Page() {
