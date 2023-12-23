@@ -1,3 +1,3 @@
 export default function Page() {
-  return <div>OI</div>
+  return <div>oi</div>
 }

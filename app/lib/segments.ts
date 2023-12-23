@@ -1,4 +1,4 @@
-import { Columns, ListBullet } from '#/icons'
+import { Columns, LineChart, Package, ShoppingCart, Users } from '#/icons'
 
 export const segments = [
   {
@@ -9,7 +9,22 @@ export const segments = [
   {
     slug: 'products',
     name: 'Products',
-    Icon: ListBullet,
+    Icon: Package,
+  },
+  {
+    slug: 'orders',
+    name: 'Orders',
+    Icon: ShoppingCart,
+  },
+  {
+    slug: 'customers',
+    name: 'Customers',
+    Icon: Users,
+  },
+  {
+    slug: 'analytics',
+    name: 'Analytics',
+    Icon: LineChart,
   },
 ]
 
