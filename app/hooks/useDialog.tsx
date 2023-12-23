@@ -2,6 +2,15 @@ import * as React from 'react'
 
 import { useMobile } from '@/hooks/mobileWrapper'
 import {
+  Drawer as MobileDialog,
+  DrawerContent as MobileDialogContent,
+  DrawerDescription as MobileDialogDescription,
+  DrawerFooter as MobileDialogFooter,
+  DrawerHeader as MobileDialogHeader,
+  DrawerTitle as MobileDialogTitle,
+  DrawerTrigger as MobileDialogTrigger,
+} from '@/components/ui/drawer'
+import {
   Dialog as BaseDialog,
   DialogContent as BaseDialogContent,
   DialogDescription as BaseDialogDescription,
@@ -10,15 +19,6 @@ import {
   DialogTitle as BaseDialogTitle,
   DialogTrigger as BaseDialogTrigger,
 } from '#/ui/dialog'
-import {
-  Dialog as MobileDialog,
-  DialogContent as MobileDialogContent,
-  DialogDescription as MobileDialogDescription,
-  DialogFooter as MobileDialogFooter,
-  DialogHeader as MobileDialogHeader,
-  DialogTitle as MobileDialogTitle,
-  DialogTrigger as MobileDialogTrigger,
-} from '#/ui/mobileDialog'
 
 const Dialog = ({ children, ...props }: React.ComponentProps<typeof BaseDialog>) => {
   const isMobile = useMobile()

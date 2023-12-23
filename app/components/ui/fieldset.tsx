@@ -1,91 +1,75 @@
 import { cn } from '@/lib/utils'
 import { Skeleton } from '#/ui/skeleton'
 
-type FieldSetProps = React.HTMLAttributes<HTMLDivElement>
+const FieldSet = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <div
+    className={cn(
+      'overflow-hidden rounded-lg border bg-fieldset text-fieldset-foreground shadow-sm',
+      className,
+    )}
+    {...props}
+  />
+)
 
-export function FieldSet({ className, ...props }: FieldSetProps) {
-  return (
-    <div
-      className={cn(
-        'overflow-hidden rounded-lg border bg-fieldset text-fieldset-foreground shadow-sm',
-        className,
-      )}
-      {...props}
-    />
-  )
-}
+const FieldSetHeader = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <div
+    className={cn('grid gap-1 p-6', className)}
+    {...props}
+  />
+)
 
-type FieldSetHeaderProps = React.HTMLAttributes<HTMLDivElement>
+const FieldSetTitle = ({ className, ...props }: React.ComponentProps<'h4'>) => (
+  <h4
+    className={cn('text-lg font-semibold leading-none tracking-tight', className)}
+    {...props}
+  />
+)
 
-FieldSet.Header = function FieldSetHeader({ className, ...props }: FieldSetHeaderProps) {
-  return (
-    <div
-      className={cn('grid gap-1 p-6', className)}
-      {...props}
-    />
-  )
-}
+const FieldSetDescription = ({ className, ...props }: React.ComponentProps<'p'>) => (
+  <p
+    className={cn('text-sm text-muted-foreground', className)}
+    {...props}
+  />
+)
 
-type FieldSetTitleProps = React.HTMLAttributes<HTMLHeadingElement>
+const FieldSetContent = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <div
+    className={cn('px-6 pb-4', className)}
+    {...props}
+  />
+)
 
-FieldSet.Title = function FieldSetTitle({ className, ...props }: FieldSetTitleProps) {
-  return (
-    <h4
-      className={cn('text-lg font-semibold leading-none tracking-tight', className)}
-      {...props}
-    />
-  )
-}
+const FieldSetFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <div
+    className={cn('border-t bg-secondary px-6 py-4', className)}
+    {...props}
+  />
+)
 
-type FieldSetDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>
+const FieldSetSeleton = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <FieldSet
+    className={cn('shadow-md', className)}
+    {...props}
+  >
+    <FieldSetHeader className='gap-2'>
+      <Skeleton className='h-5 w-1/5' />
+      <Skeleton className='h-4 w-4/5' />
+    </FieldSetHeader>
+    <FieldSetContent className='h-10'>
+      <Skeleton className='h-5 w-1/5' />
+    </FieldSetContent>
+    <FieldSetFooter>
+      <Skeleton className='h-8 w-[120px] bg-primary' />
+    </FieldSetFooter>
+  </FieldSet>
+)
 
-FieldSet.Description = function FieldSetDescription({
-  className,
-  ...props
-}: FieldSetDescriptionProps) {
-  return (
-    <p
-      className={cn('text-sm text-muted-foreground', className)}
-      {...props}
-    />
-  )
-}
-
-type FieldSetContentProps = React.HTMLAttributes<HTMLDivElement>
-
-FieldSet.Content = function FieldSetContent({ className, ...props }: FieldSetContentProps) {
-  return (
-    <div
-      className={cn('px-6 pb-4', className)}
-      {...props}
-    />
-  )
-}
-
-type FieldSetFooterProps = React.HTMLAttributes<HTMLDivElement>
-
-FieldSet.Footer = function FieldSetFooter({ className, ...props }: FieldSetFooterProps) {
-  return (
-    <div
-      className={cn('border-t bg-secondary px-6 py-4', className)}
-      {...props}
-    />
-  )
-}
-
-FieldSet.Skeleton = function FieldSetSeleton({ className }: FieldSetProps) {
-  return (
-    <FieldSet className={cn('shadow-md', className)}>
-      <FieldSet.Header className='gap-2'>
-        <Skeleton className='h-5 w-1/5' />
-        <Skeleton className='h-4 w-4/5' />
-      </FieldSet.Header>
-      <FieldSet.Content className='h-10'>
-        <Skeleton className='h-5 w-1/5' />
-      </FieldSet.Content>
-      <FieldSet.Footer>
-        <Skeleton className='h-8 w-[120px] bg-primary' />
-      </FieldSet.Footer>
-    </FieldSet>
-  )
+export {
+  FieldSet,
+  FieldSetContent,
+  FieldSetDescription,
+  FieldSetFooter,
+  FieldSetHeader,
+  FieldSetSeleton,
+  FieldSetTitle,
 }

@@ -2,10 +2,10 @@ import * as React from 'react'
 
 import { useMobile } from '@/hooks/mobileWrapper'
 import {
-  Dialog as MobileDialog,
-  DialogContent as MobileDialogContent,
-  DialogTrigger as MobileDialogTrigger,
-} from '#/ui/mobileDialog'
+  Drawer as MobilePopover,
+  DrawerContent as MobilePopoverContent,
+  DrawerTrigger as MobilePopoverTrigger,
+} from '@/components/ui/drawer'
 import {
   Popover as BasePopover,
   PopoverContent as BasePopoverContent,
@@ -14,7 +14,7 @@ import {
 
 const Popover = ({ children, ...props }: React.ComponentProps<typeof BasePopover>) => {
   const isMobile = useMobile()
-  const PopoverComponent = isMobile ? MobileDialog : BasePopover
+  const PopoverComponent = isMobile ? MobilePopover : BasePopover
 
   return <PopoverComponent {...props}>{children}</PopoverComponent>
 }
@@ -24,7 +24,7 @@ const PopoverTrigger = ({
   ...props
 }: React.ComponentProps<typeof BasePopoverTrigger>) => {
   const isMobile = useMobile()
-  const PopoverTriggerComponent = isMobile ? MobileDialogTrigger : BasePopoverTrigger
+  const PopoverTriggerComponent = isMobile ? MobilePopoverTrigger : BasePopoverTrigger
 
   return <PopoverTriggerComponent {...props}>{children}</PopoverTriggerComponent>
 }
@@ -32,9 +32,9 @@ const PopoverTrigger = ({
 const PopoverContent = ({
   children,
   ...props
-}: React.ComponentProps<typeof MobileDialogContent>) => {
+}: React.ComponentProps<typeof MobilePopoverContent>) => {
   const isMobile = useMobile()
-  const PopoverContentComponent = isMobile ? MobileDialogContent : BasePopoverContent
+  const PopoverContentComponent = isMobile ? MobilePopoverContent : BasePopoverContent
 
   return <PopoverContentComponent {...props}>{children}</PopoverContentComponent>
 }
