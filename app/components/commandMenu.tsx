@@ -3,6 +3,8 @@
 import * as React from 'react'
 import { useRouter } from 'next/navigation'
 import type { DialogProps } from '@radix-ui/react-alert-dialog'
+import { Computer, Moon, Sun } from '#/icons'
+import { useTheme } from 'next-themes'
 
 import { segments } from '@/lib/segments'
 import { cn } from '@/lib/utils'
@@ -14,6 +16,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
+  CommandSeparator,
 } from '#/ui/command'
 
 type CommandMenuProps = DialogProps
@@ -21,6 +24,7 @@ type CommandMenuProps = DialogProps
 export function CommandMenu({ ...props }: CommandMenuProps) {
   const [open, setOpen] = React.useState(false)
 
+  const { setTheme } = useTheme()
   const { push } = useRouter()
 
   React.useEffect(() => {
@@ -43,7 +47,7 @@ export function CommandMenu({ ...props }: CommandMenuProps) {
   return (
     <>
       <Button
-        variant='secondary'
+        variant='outline'
         className={cn(
           'relative h-9 justify-start rounded-[0.5rem] text-sm text-muted-foreground sm:pr-12 md:w-36',
         )}
@@ -72,6 +76,21 @@ export function CommandMenu({ ...props }: CommandMenuProps) {
                 {name}
               </CommandItem>
             ))}
+          </CommandGroup>
+          <CommandSeparator />
+          <CommandGroup heading='Theme'>
+            <CommandItem onSelect={() => runCommand(() => setTheme('light'))}>
+              <Sun className='mr-2 h-4 w-4' />
+              Light
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => setTheme('dark'))}>
+              <Moon className='mr-2 h-4 w-4' />
+              Dark
+            </CommandItem>
+            <CommandItem onSelect={() => runCommand(() => setTheme('system'))}>
+              <Computer className='mr-2 h-4 w-4' />
+              System
+            </CommandItem>
           </CommandGroup>
         </CommandList>
       </CommandDialog>

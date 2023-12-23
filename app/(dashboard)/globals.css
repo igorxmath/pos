@@ -12,22 +12,22 @@
 
     --fieldset: 0 0% 100%;
     --fieldset-foreground: 240 10% 3.9%;
- 
+
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
- 
+
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
- 
+
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
- 
+
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
- 
+
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
- 
+
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
@@ -36,7 +36,42 @@
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 10% 3.9%;
- 
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 0 0% 0%;
+    --foreground: 0 100% 100%;
+
+    --muted: 0 0% 7%;
+    --muted-foreground: 0 0% 64%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 100% 100%;
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 100% 100%;
+
+    --fieldset: 0 0% 0%;
+    --fieldset-foreground: 0 100% 100%;
+
+    --primary: 0 100% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 7%;
+    --secondary-foreground: 0 100% 100%;
+
+    --accent: 0 0% 17%;
+    --accent-foreground: 0 100% 100%;
+
+    --destructive: 0 100% 45%;
+    --destructive-foreground: 0 100% 100%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 53%;
+
     --radius: 0.5rem;
   }
 }
@@ -46,7 +81,7 @@
     @apply border-border;
   }
   html {
-    color-scheme: light;
+    color-scheme: light dark;
   }
   body {
     @apply bg-background text-foreground;
