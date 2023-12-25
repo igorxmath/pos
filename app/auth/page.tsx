@@ -2,8 +2,8 @@
 
 import * as React from 'react'
 import Link from 'next/link'
-import { signInWithGoogleAction } from '@/actions/user'
-import { ChevronLeft, Google } from '#/icons'
+import { signInWithGithubAction, signInWithGoogleAction } from '@/actions/user'
+import { ChevronLeft, GitHub, Google } from '#/icons'
 
 import { Button } from '#/ui/button'
 import { LoadingSpinner } from '#/ui/loadingSpinner'
@@ -28,22 +28,40 @@ export default function LoginPage() {
           <h1 className='text-2xl font-semibold tracking-tight'>Welcome back</h1>
           <p className='text-sm'>Sign in to your account</p>
         </div>
-        <Button
-          variant={'outline'}
-          className='w-full'
-          disabled={isPending}
-          onClick={(event) => {
-            event.preventDefault()
-            startTransition(async () => await signInWithGoogleAction())
-          }}
-        >
-          {isPending ? (
-            <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
-          ) : (
-            <Google className='mr-2 h-6 w-6' />
-          )}
-          Continue with Google
-        </Button>
+        <div className='flex flex-col space-y-4'>
+          <Button
+            variant={'outline'}
+            className='w-full'
+            disabled={isPending}
+            onClick={(event) => {
+              event.preventDefault()
+              startTransition(async () => await signInWithGithubAction())
+            }}
+          >
+            {isPending ? (
+              <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
+            ) : (
+              <GitHub className='mr-2 h-6 w-6' />
+            )}
+            Continue with GitHub
+          </Button>
+          <Button
+            variant={'outline'}
+            className='w-full'
+            disabled={isPending}
+            onClick={(event) => {
+              event.preventDefault()
+              startTransition(async () => await signInWithGoogleAction())
+            }}
+          >
+            {isPending ? (
+              <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
+            ) : (
+              <Google className='mr-2 h-6 w-6' />
+            )}
+            Continue with Google
+          </Button>
+        </div>
         <p className='px-8 text-center text-sm text-muted-foreground'>
           By continuing, you agree to our{' '}
           <Link

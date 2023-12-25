@@ -244,7 +244,7 @@ export default async function Page({
                 <TableHead className='w-[80px]'>Image</TableHead>
                 <TableHead className='max-w-[150px]'>Name</TableHead>
                 <TableHead className='hidden md:table-cell'>Status</TableHead>
-                <TableHead className='hidden md:table-cell'>Inventory</TableHead>
+                <TableHead>Inventory</TableHead>
                 <TableHead className='hidden md:table-cell'>Price</TableHead>
                 <TableHead className='hidden md:table-cell'>Vendor</TableHead>
                 <TableHead className='w-1'>

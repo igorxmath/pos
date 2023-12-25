@@ -41,7 +41,10 @@ const FieldSetContent = ({ className, ...props }: React.ComponentProps<'div'>) =
 
 const FieldSetFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
   <div
-    className={cn('flex items-center justify-between border-t bg-secondary px-6 py-4', className)}
+    className={cn(
+      'flex items-center justify-between space-x-2 border-t bg-secondary px-6 py-4',
+      className,
+    )}
     {...props}
   />
 )
