@@ -25,7 +25,7 @@ export default function AsideNav() {
             >
               <Button
                 variant={`ghost`}
-                className={cn('sm:w-full sm:justify-start', isActive && 'font-semibold')}
+                className={cn('font-normal sm:w-full sm:justify-start', isActive && 'font-medium')}
               >
                 {name}
               </Button>

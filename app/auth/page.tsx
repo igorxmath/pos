@@ -30,7 +30,7 @@ export default function LoginPage() {
         </div>
         <div className='flex flex-col space-y-4'>
           <Button
-            variant={'outline'}
+            variant={'default'}
             className='w-full'
             disabled={isPending}
             onClick={(event) => {
