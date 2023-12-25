@@ -1,17 +1,18 @@
+import { redirect } from 'next/navigation'
 import { db } from '$/db'
 import { accounts } from '$/schema'
 import { eq } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { GitHub, Google } from '@/components/icons'
 
 export default async function Page() {
   const session = await auth()
 
   if (!session) {
-    return null
+    redirect('/auth')
   }
 
   const providersLinked = (
@@ -35,10 +36,7 @@ export default async function Page() {
       <div className='space-y-6'>
         <Card className='shadow-sm'>
           <CardHeader>
-            <CardTitle>Add new</CardTitle>
-            <CardDescription>
-              Connect your Personal Account with a third-party service to use it for login.
-            </CardDescription>
+            <CardTitle className='border-b text-base'>Add new</CardTitle>
           </CardHeader>
           <CardContent>
             <div className='flex gap-4'>
@@ -55,6 +53,11 @@ export default async function Page() {
               </Button>
             </div>
           </CardContent>
+          <CardFooter>
+            <p className='w-full border-t text-sm text-muted-foreground'>
+              Connect your Personal Account with a third-party service to use it for login.
+            </p>
+          </CardFooter>
         </Card>
         <div className='space-y-4'>
           {providersLinked.map((provider) => (
