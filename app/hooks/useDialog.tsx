@@ -1,17 +1,11 @@
+'use client'
+
 import * as React from 'react'
 
 import { useMobile } from '@/hooks/mobileWrapper'
 import {
-  Drawer as MobileDialog,
-  DrawerContent as MobileDialogContent,
-  DrawerDescription as MobileDialogDescription,
-  DrawerFooter as MobileDialogFooter,
-  DrawerHeader as MobileDialogHeader,
-  DrawerTitle as MobileDialogTitle,
-  DrawerTrigger as MobileDialogTrigger,
-} from '@/components/ui/drawer'
-import {
   Dialog as BaseDialog,
+  DialogClose as BaseDialogClose,
   DialogContent as BaseDialogContent,
   DialogDescription as BaseDialogDescription,
   DialogFooter as BaseDialogFooter,
@@ -19,6 +13,16 @@ import {
   DialogTitle as BaseDialogTitle,
   DialogTrigger as BaseDialogTrigger,
 } from '#/ui/dialog'
+import {
+  Drawer as MobileDialog,
+  DrawerClose as MobileDialogClose,
+  DrawerContent as MobileDialogContent,
+  DrawerDescription as MobileDialogDescription,
+  DrawerFooter as MobileDialogFooter,
+  DrawerHeader as MobileDialogHeader,
+  DrawerTitle as MobileDialogTitle,
+  DrawerTrigger as MobileDialogTrigger,
+} from '#/ui/drawer'
 
 const Dialog = ({ children, ...props }: React.ComponentProps<typeof BaseDialog>) => {
   const isMobile = useMobile()
@@ -75,8 +79,16 @@ const DialogTrigger = ({ children, ...props }: React.ComponentProps<typeof BaseD
   return <DialogTriggerComponent {...props}>{children}</DialogTriggerComponent>
 }
 
+const DialogClose = ({ children, ...props }: React.ComponentProps<typeof BaseDialogClose>) => {
+  const isMobile = useMobile()
+  const DialogCloseComponent = isMobile ? MobileDialogClose : BaseDialogClose
+
+  return <DialogCloseComponent {...props}>{children}</DialogCloseComponent>
+}
+
 export {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,

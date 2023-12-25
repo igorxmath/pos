@@ -70,7 +70,7 @@ export function CommandMenu({ ...props }: CommandMenuProps) {
             {segments.map(({ slug, name, Icon }, index) => (
               <CommandItem
                 key={index}
-                onSelect={() => runCommand(() => push(`/${slug}`))}
+                onSelect={() => runCommand(() => push(`/dashboard/${slug}`))}
               >
                 <Icon className='mr-2 h-4 w-4' />
                 {name}

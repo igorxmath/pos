@@ -15,7 +15,7 @@
 
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
   ],
 
   "material-icon-theme.folders.associations": {
@@ -23,12 +23,12 @@
     "ui": "theme",
     "dashboard": "views",
     "components": "react-components",
-    "users": "admin",
+    "users": "admin"
   },
 
   "material-icon-theme.files.associations": {
     "drizzle.config.ts": "settings",
-    "env.mjs": "raml",
+    "env.mjs": "raml"
   },
 
   "editor.linkedEditing": true,

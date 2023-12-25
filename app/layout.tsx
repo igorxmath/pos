@@ -5,11 +5,7 @@ import { GeistMono } from 'geist/font/mono'
 import { GeistSans } from 'geist/font/sans'
 
 import { cn } from '@/lib/utils'
-import { MobileProvider } from '@/hooks/mobileWrapper'
 import { ThemeProvider } from '@/hooks/themeWrapper'
-
-import Footer from './footer'
-import Nav from './nav'
 
 export const viewport: Viewport = {
   themeColor: [
@@ -44,11 +40,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           enableSystem
           disableTransitionOnChange
         >
-          <MobileProvider>
-            <Nav />
-            <main className='flex min-h-screen w-full justify-center'>{children}</main>
-            <Footer />
-          </MobileProvider>
+          {children}
         </ThemeProvider>
       </body>
     </html>

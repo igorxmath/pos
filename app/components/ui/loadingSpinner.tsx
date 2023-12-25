@@ -1,15 +1,24 @@
 import { cn } from '@/lib/utils'
 
-export function LoadingSpinner({ className }: { className?: string }) {
+type LoadingSpinnerProps = {
+  classNames?: {
+    container?: string
+    spinner?: string
+  }
+}
+
+export function LoadingSpinner({ classNames }: LoadingSpinnerProps) {
+  const { container, spinner } = classNames || {}
+
   return (
-    <div className={cn('h-5 w-5', className)}>
+    <div className={cn('h-4 w-4', container)}>
       <div
         style={{
           position: 'relative',
           top: '50%',
           left: '50%',
         }}
-        className={cn('loading-spinner', 'h-5 w-5', className)}
+        className={cn('h-4 w-4', spinner)}
       >
         {[...Array(12)].map((_, i) => (
           <div
