@@ -22,7 +22,7 @@ export const {
   adapter: DrizzleAdapter(db),
   providers: [Google],
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       session.user.id = user.id
       return session
     },
