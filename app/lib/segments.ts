@@ -1,4 +1,4 @@
-import { Columns, LineChart, Package, ShoppingCart, Users } from '#/icons'
+import { Columns, LineChart, Package, Settings, ShoppingCart, Users } from '#/icons'
 
 export const segments = [
   {
@@ -26,11 +26,20 @@ export const segments = [
     name: 'Analytics',
     Icon: LineChart,
   },
+  {
+    slug: 'settings',
+    name: 'Settings',
+    Icon: Settings,
+  },
 ]
 
 export const settingsSegments = [
   {
     slug: '',
     name: 'General',
+  },
+  {
+    slug: 'login-connections',
+    name: 'Login Connections',
   },
 ]

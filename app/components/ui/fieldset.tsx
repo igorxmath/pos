@@ -41,12 +41,26 @@ const FieldSetContent = ({ className, ...props }: React.ComponentProps<'div'>) =
 
 const FieldSetFooter = ({ className, ...props }: React.ComponentProps<'div'>) => (
   <div
-    className={cn('border-t bg-secondary px-6 py-4', className)}
+    className={cn('flex items-center justify-between border-t bg-secondary px-6 py-4', className)}
     {...props}
   />
 )
 
-const FieldSetSeleton = ({ className, ...props }: React.ComponentProps<'div'>) => (
+const FieldSetFooterStatus = ({ className, ...props }: React.ComponentProps<'p'>) => (
+  <p
+    className={cn('text-sm text-muted-foreground', className)}
+    {...props}
+  />
+)
+
+const FieldSetFooterActions = ({ className, ...props }: React.ComponentProps<'div'>) => (
+  <div
+    className={cn('ml-auto', className)}
+    {...props}
+  />
+)
+
+const FieldSetSkeleton = ({ className, ...props }: React.ComponentProps<'div'>) => (
   <FieldSet
     className={cn('shadow-md', className)}
     {...props}
@@ -69,7 +83,9 @@ export {
   FieldSetContent,
   FieldSetDescription,
   FieldSetFooter,
+  FieldSetFooterActions,
+  FieldSetFooterStatus,
   FieldSetHeader,
-  FieldSetSeleton,
+  FieldSetSkeleton,
   FieldSetTitle,
 }
