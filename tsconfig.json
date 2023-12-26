@@ -28,6 +28,7 @@
       "$/env": ["./env.mjs"],
       "$/auth": ["./app/lib/auth.ts"],
       "$/db": ["./database/index.ts"],
+      "$/db/*": ["./database/*"],
       "$/schema": ["./database/schema.ts"],
     }
   },
