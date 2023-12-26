@@ -3,8 +3,8 @@ import Link from 'next/link'
 import { ChevronLeft, ChevronRight, EllipsisHorizontal } from '#/icons'
 
 import { cn } from '@/lib/utils'
-import type { ButtonProps } from '@/components/ui/button'
-import { buttonVariants } from '@/components/ui/button'
+import type { ButtonProps } from '#/ui/button'
+import { buttonVariants } from '#/ui/button'
 
 const Pagination = ({ className, ...props }: React.ComponentProps<'nav'>) => (
   <nav

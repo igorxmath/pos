@@ -7,7 +7,7 @@ import {
   Drawer as MobilePopover,
   DrawerContent as MobilePopoverContent,
   DrawerTrigger as MobilePopoverTrigger,
-} from '@/components/ui/drawer'
+} from '#/ui/drawer'
 import {
   Popover as BasePopover,
   PopoverContent as BasePopoverContent,

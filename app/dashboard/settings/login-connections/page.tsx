@@ -7,7 +7,11 @@ import { eq } from 'drizzle-orm'
 import { auth } from '@/lib/auth'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '#/ui/card'
 
-import { DisconnectProviderButton, GitHubSignInButton, GoogleSignInButton } from './buttonActions'
+import {
+  ConnectGitHubProviderButton,
+  ConnectGoogleProviderButton,
+  DisconnectProviderButton,
+} from './providersButtons'
 
 export default async function Page() {
   const session = await auth()
@@ -30,8 +34,8 @@ export default async function Page() {
       <div className='space-y-4'>
         <h1 className='text-2xl font-medium'>Login Connections</h1>
         <p>
-          Connect your Personal Account with a third-party service to use it for login.
-          One Login Connection can be added per third-party service.
+          Connect your Personal Account with a third-party service to use it for login. One Login
+          Connection can be added per third-party service.
         </p>
       </div>
       <div className='space-y-6'>
@@ -41,12 +45,8 @@ export default async function Page() {
           </CardHeader>
           <CardContent>
             <div className='flex gap-4'>
-              <GitHubSignInButton
-                disabled={providersLinked.includes('github')}
-              />
-              <GoogleSignInButton
-                disabled={providersLinked.includes('google')}
-              />
+              <ConnectGitHubProviderButton disabled={providersLinked.includes('github')} />
+              <ConnectGoogleProviderButton disabled={providersLinked.includes('google')} />
             </div>
           </CardContent>
           <CardFooter>

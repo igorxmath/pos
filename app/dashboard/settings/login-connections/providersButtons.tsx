@@ -5,15 +5,11 @@ import { disconnectProvider, signInWithGithubAction, signInWithGoogleAction } fr
 import { GitHub, Google } from '#/icons'
 import { toast } from 'sonner'
 
-import { LoadingSpinner } from '@/components/ui/loadingSpinner'
-import { Button, type ButtonProps } from '#/ui/button'
-import { LoadingDots } from '@/components/ui/loadingDots'
+import { Button } from '#/ui/button'
+import { LoadingDots } from '#/ui/loadingDots'
+import { LoadingSpinner } from '#/ui/loadingSpinner'
 
-type Props = {
-  disabled?: ButtonProps['disabled']
-}
-
-export function GoogleSignInButton({ disabled }: { disabled?: boolean }) {
+export function ConnectGoogleProviderButton({ disabled }: { disabled?: boolean }) {
   const [isPending, startTransition] = React.useTransition()
 
   return (
@@ -36,7 +32,7 @@ export function GoogleSignInButton({ disabled }: { disabled?: boolean }) {
   )
 }
 
-export function GitHubSignInButton({ disabled }: { disabled?: boolean }) {
+export function ConnectGitHubProviderButton({ disabled }: { disabled?: boolean }) {
   const [isPending, startTransition] = React.useTransition()
 
   return (
@@ -68,12 +64,13 @@ export function DisconnectProviderButton({ provider }: { provider: string }) {
       disabled={isPending}
       onClick={() => {
         startTransition(() => {
-          disconnectProvider(provider).then(({ message }) => {
-            toast.success(message)
-          }).catch(({ message }) => {
-            toast.error(message)
-          }
-          )
+          disconnectProvider(provider)
+            .then(({ message }) => {
+              toast.success(message)
+            })
+            .catch(({ message }) => {
+              toast.error(message)
+            })
         })
       }}
     >

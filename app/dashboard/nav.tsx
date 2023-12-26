@@ -3,14 +3,14 @@ import { Square } from '#/icons'
 import { auth } from '$/auth'
 
 import { segments } from '@/lib/segments'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
+import { Avatar, AvatarFallback, AvatarImage } from '#/ui/avatar'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdownMenu'
+} from '#/ui/dropdownMenu'
 
 import { SignOutButton } from './signOut'
 import Tabs from './tabs'

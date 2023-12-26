@@ -26,12 +26,12 @@ export async function disconnectProvider(provider: string) {
   const userId = session.user.id
 
   const providerCount = await db
-  .select({ value: count() })
-  .from(accounts)
-  .where(eq(accounts.userId, userId))
-  
+    .select({ value: count() })
+    .from(accounts)
+    .where(eq(accounts.userId, userId))
+
   if (providerCount[0].value <= 1) throw new Error('Cannot disconnect last provider')
-  
+
   try {
     await db
       .delete(accounts)
