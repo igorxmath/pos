@@ -9,8 +9,6 @@ import { Button } from '#/ui/button'
 import { LoadingSpinner } from '#/ui/loadingSpinner'
 
 export default function LoginPage() {
-  const [isPending, startTransition] = React.useTransition()
-
   return (
     <div className='flex min-h-screen w-screen flex-col items-center justify-center'>
       <Button
@@ -29,38 +27,8 @@ export default function LoginPage() {
           <p className='text-sm'>Sign in to your account</p>
         </div>
         <div className='flex flex-col space-y-4'>
-          <Button
-            variant={'default'}
-            className='w-full'
-            disabled={isPending}
-            onClick={(event) => {
-              event.preventDefault()
-              startTransition(async () => await signInWithGithubAction())
-            }}
-          >
-            {isPending ? (
-              <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
-            ) : (
-              <GitHub className='mr-2 h-6 w-6' />
-            )}
-            Continue with GitHub
-          </Button>
-          <Button
-            variant={'outline'}
-            className='w-full'
-            disabled={isPending}
-            onClick={(event) => {
-              event.preventDefault()
-              startTransition(async () => await signInWithGoogleAction())
-            }}
-          >
-            {isPending ? (
-              <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
-            ) : (
-              <Google className='mr-2 h-6 w-6' />
-            )}
-            Continue with Google
-          </Button>
+          <SignInWithGithubButton />
+          <SignInWithGoogleButton />
         </div>
         <p className='px-8 text-center text-sm text-muted-foreground'>
           By continuing, you agree to our{' '}
@@ -81,5 +49,51 @@ export default function LoginPage() {
         </p>
       </div>
     </div>
+  )
+}
+
+function SignInWithGithubButton() {
+  const [isPending, startTransition] = React.useTransition()
+
+  return (
+    <Button
+      variant={'default'}
+      className='w-full'
+      disabled={isPending}
+      onClick={(event) => {
+        event.preventDefault()
+        startTransition(async () => await signInWithGithubAction())
+      }}
+    >
+      {isPending ? (
+        <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
+      ) : (
+        <GitHub className='mr-2 h-6 w-6' />
+      )}
+      Continue with GitHub
+    </Button>
+  )
+}
+
+function SignInWithGoogleButton() {
+  const [isPending, startTransition] = React.useTransition()
+
+  return (
+    <Button
+      variant={'outline'}
+      className='w-full'
+      disabled={isPending}
+      onClick={(event) => {
+        event.preventDefault()
+        startTransition(async () => await signInWithGoogleAction())
+      }}
+    >
+      {isPending ? (
+        <LoadingSpinner classNames={{ container: 'mr-2 h-6 w-6', spinner: 'h-6 w-6' }} />
+      ) : (
+        <Google className='mr-2 h-6 w-6' />
+      )}
+      Continue with Google
+    </Button>
   )
 }

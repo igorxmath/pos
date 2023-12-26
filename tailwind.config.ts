@@ -77,6 +77,17 @@ export default {
             opacity: '0',
           },
         },
+        blink: {
+          '0%': {
+            opacity: '0.2',
+          },
+          '20%': {
+            opacity: '1',
+          },
+          '100%': {
+            opacity: '0.2',
+          },
+        },
         gauge_fadeIn: {
           from: { opacity: '0' },
           to: { opacity: '1' },
@@ -92,6 +103,7 @@ export default {
         gauge_fadeIn: 'gauge_fadeIn 1s ease forwards',
         gauge_fill: 'gauge_fill 1s ease forwards',
         spinner: 'spinner 1.2s linear infinite',
+        blink: 'blink 1.4s linear infinite',
       },
     },
   },

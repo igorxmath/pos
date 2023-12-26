@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { EllipsisHorizontal } from '#/icons'
 
-import { auth } from '@/lib/auth'
 import {
   Dialog,
   DialogClose,
@@ -25,10 +24,6 @@ export default async function Page({
 }: {
   searchParams: { [key: string]: string | string[] | undefined }
 }) {
-  const session = await auth()
-
-  console.log(session?.user)
-
   let products = [
     {
       id: '1',

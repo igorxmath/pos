@@ -1,12 +1,13 @@
 import { redirect } from 'next/navigation'
+import { GitHub, Google } from '#/icons'
 import { db } from '$/db'
 import { accounts } from '$/schema'
 import { eq } from 'drizzle-orm'
 
 import { auth } from '@/lib/auth'
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { GitHub, Google } from '@/components/icons'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '#/ui/card'
+
+import { DisconnectProviderButton, GitHubSignInButton, GoogleSignInButton } from './buttonActions'
 
 export default async function Page() {
   const session = await auth()
@@ -29,7 +30,7 @@ export default async function Page() {
       <div className='space-y-4'>
         <h1 className='text-2xl font-medium'>Login Connections</h1>
         <p>
-          Connect your Personal Account on Vercel with a third-party service to use it for login.
+          Connect your Personal Account with a third-party service to use it for login.
           One Login Connection can be added per third-party service.
         </p>
       </div>
@@ -40,17 +41,12 @@ export default async function Page() {
           </CardHeader>
           <CardContent>
             <div className='flex gap-4'>
-              <Button disabled={providersLinked.includes('github')}>
-                <GitHub className='mr-2 h-4 w-4' />
-                GitHub
-              </Button>
-              <Button
+              <GitHubSignInButton
+                disabled={providersLinked.includes('github')}
+              />
+              <GoogleSignInButton
                 disabled={providersLinked.includes('google')}
-                variant='outline'
-              >
-                <Google className='mr-2 h-4 w-4' />
-                Google
-              </Button>
+              />
             </div>
           </CardContent>
           <CardFooter>
@@ -80,7 +76,7 @@ export default async function Page() {
                       {provider.charAt(0).toUpperCase() + provider.slice(1)}
                     </div>
                   </div>
-                  <Button variant='outline'>Disconnect</Button>
+                  <DisconnectProviderButton provider={provider} />
                 </div>
               </CardContent>
             </Card>
