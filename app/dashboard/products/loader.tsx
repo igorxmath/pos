@@ -17,12 +17,12 @@ export default function Loader() {
 
   const loadMoreProducts = () => {
     const params = new URLSearchParams(searchParams)
-    const limit = params.get('limit')
+    const total = params.get('total')
 
-    if (limit) {
-      params.set('limit', (Number(limit) + 1).toString())
+    if (total) {
+      params.set('total', (Number(total) + 5).toString())
     } else {
-      params.set('limit', '3')
+      params.set('total', '10')
     }
 
     startTransition(() => {

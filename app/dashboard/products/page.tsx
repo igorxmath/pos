@@ -1,29 +1,23 @@
 import Image from 'next/image'
 import { EllipsisHorizontal } from '#/icons'
 
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/hooks/useDialog'
 import SearchBar from '@/components/searchBar'
 import { Badge } from '#/ui/badge'
 import { Button } from '#/ui/button'
 import { Checkbox } from '#/ui/checkbox'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '#/ui/table'
 
+import AddNewProductDialog from './addProductDialog'
 import Loader from './loader'
 
 export default async function Page({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | string[] | undefined }
+  searchParams?: { query?: string; total?: string }
 }) {
+  const query = searchParams?.query || ''
+  const totalProducts = Number(searchParams?.total) || 5
+
   let products = [
     {
       id: '1',
@@ -197,8 +191,10 @@ export default async function Page({
     },
   ]
 
-  if (searchParams.limit) {
-    products = products.slice(0, Number(searchParams.limit))
+  if (query) {
+    products = products.filter(({ name }) => name.toLowerCase().search(query.toLowerCase()))
+  } else if (totalProducts) {
+    products = products.slice(0, Number(totalProducts))
   }
 
   return (
@@ -207,23 +203,7 @@ export default async function Page({
         <div className='max-auto container flex flex-col justify-between space-y-4 px-4 py-8 sm:flex-row sm:space-y-0'>
           <h1 className='font-heading text-3xl md:text-4xl'>Products</h1>
           <div className='flex space-x-4'>
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button>Add product</Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Add product</DialogTitle>
-                  <DialogDescription>Add a new product to your store.</DialogDescription>
-                </DialogHeader>
-                <DialogFooter>
-                  <DialogClose asChild>
-                    <Button variant={'outline'}>Cancel</Button>
-                  </DialogClose>
-                  <Button>Submit</Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
+            <AddNewProductDialog />
           </div>
         </div>
       </div>

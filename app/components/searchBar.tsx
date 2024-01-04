@@ -11,17 +11,17 @@ import { LoadingSpinner } from '#/ui/loadingSpinner'
 export default function SearchBar() {
   const [isPeding, startTransition] = React.useTransition()
 
-  const pathname = usePathname()
   const searchParams = useSearchParams()
+  const pathname = usePathname()
   const { replace } = useRouter()
 
   const handleSearch = (term: string) => {
     const params = new URLSearchParams(searchParams)
 
     if (term) {
-      params.set('search', term)
+      params.set('query', term)
     } else {
-      params.delete('search')
+      params.delete('query')
     }
 
     startTransition(() => {
