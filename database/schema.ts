@@ -7,7 +7,7 @@ export const users = sqliteTable('user', {
   email: text('email').notNull(),
   emailVerified: integer('emailVerified', { mode: 'timestamp_ms' }),
   image: text('image'),
-  role: text('role').$type<'admin' | 'member'>().notNull().default('member'),
+  role: text('role').$type<'admin' | 'member'>(),
 })
 
 export const accounts = sqliteTable(

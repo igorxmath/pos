@@ -192,7 +192,7 @@ export default async function Page({
   ]
 
   if (query) {
-    products = products.filter(({ name }) => name.toLowerCase().search(query.toLowerCase()))
+    products = products.filter(({ name }) => name.toLowerCase().includes(query.toLowerCase()))
   } else if (totalProducts) {
     products = products.slice(0, Number(totalProducts))
   }

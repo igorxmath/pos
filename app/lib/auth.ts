@@ -3,7 +3,7 @@ import { db } from '$/db'
 import { users } from '$/schema'
 import { eq } from 'drizzle-orm'
 import NextAuth, { type DefaultSession } from 'next-auth'
-import Github from 'next-auth/providers/github'
+import GitHub from 'next-auth/providers/github'
 import Google from 'next-auth/providers/google'
 
 declare module 'next-auth' {
@@ -22,7 +22,7 @@ export const {
   signOut,
 } = NextAuth({
   adapter: DrizzleAdapter(db),
-  providers: [Google, Github],
+  providers: [Google, GitHub],
   callbacks: {
     async session({ session, user }) {
       const findUserRole = await db.query.users.findFirst({

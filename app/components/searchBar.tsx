@@ -38,7 +38,7 @@ export default function SearchBar() {
         id='search'
         className='bg-background pl-10'
         placeholder='Search...'
-        defaultValue={searchParams.get('search')?.toString()}
+        defaultValue={searchParams.get('query')?.toString()}
         autoComplete='off'
         onChange={(e) => {
           handleSearch(e.target.value)

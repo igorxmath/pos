@@ -22,6 +22,20 @@
       "when": 1703474814935,
       "tag": "0002_green_hiroim",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1704398345520,
+      "tag": "0003_overconfident_titanium_man",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "5",
+      "when": 1704399561085,
+      "tag": "0004_woozy_slyde",
+      "breakpoints": true
     }
   ]
 }
